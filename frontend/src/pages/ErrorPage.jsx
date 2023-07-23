@@ -1,15 +1,13 @@
-import { useRouteError } from "react-router-dom";
-
 function ErrorPage() {
-  const error = useRouteError();
-
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>{error.status}</p>
+    <div
+      id="error-page"
+      className="h-screen flex flex-col justify-center text-center gap-10 p-5"
+    >
+      <h1>Oups!</h1>
       <p>
-        <i>{error.statusText || error.message}</i>
+        Vous avez atteint le trou noir du développement web - la Galaxie Erreur
+        404 !
       </p>
     </div>
   );

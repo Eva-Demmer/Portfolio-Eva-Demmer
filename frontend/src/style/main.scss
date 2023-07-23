@@ -3,13 +3,15 @@
   padding: 0;
   box-sizing: border-box;
   list-style-type: none;
+  text-decoration: none;
+  list-style: none;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @layer base {
   html {
@@ -22,29 +24,70 @@
   }
 
   h1 {
-    @apply font-bold text-8xl;
+    @apply mb-3 text-5xl font-bold uppercase tracking-mobileH1 md:text-8xl md:tracking-tabletH1 lg:text-9xl lg:tracking-desktopH1;
   }
 
   h2 {
-    @apply font-bold text-5xl;
+    @apply text-4xl font-semibold leading-9 tracking-mobileH2 md:text-6xl md:leading-11 md:tracking-tabletH2 lg:text-7xl lg:tracking-desktopH2;
   }
 
   h3 {
-    @apply font-bold text-2xl;
+    @apply text-base font-semibold leading-8 tracking-mobileH3 md:text-4xl md:tracking-tabletH3 lg:tracking-desktopH3;
+  }
+
+  h4 {
+    @apply text-base font-semibold md:text-3xl;
+  }
+
+  h5 {
+    @apply text-base font-medium leading-8 tracking-mobileH5 md:text-2xl md:tracking-tabletH5 lg:tracking-desktopH5 py-1;
+  }
+
+  // span {
+  //   @apply font-bold text-base md:text-2xl tracking-mobileSpan md:tracking-tabletSpan lg:tracking-desktopSpan uppercase;
+  // }
+
+  span {
+    @apply text-xl font-medium uppercase leading-5 tracking-mobileParagraph md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph;
   }
 
   p {
-    @apply font-medium text-lg;
+    @apply text-base font-light leading-5 tracking-mobileParagraph md:text-base md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph;
   }
+}
 
-  @variants responsive {
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+#scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
   }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4ee1a0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #242424;
+  border: none;
+}
+
+::-webkit-scrollbar-horizontal {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+  background-color: #4ee1a0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track-horizontal {
+  background-color: #242424;
+  border: none;
 }

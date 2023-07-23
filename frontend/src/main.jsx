@@ -5,6 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./pages/Root";
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
+import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 
 // add contexts
@@ -18,11 +21,25 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "home/",
+        path: "home",
         element: <Home />,
       },
       {
-        path: "admin/",
+        path: "projects",
+        element: <Projects />,
+        children: [
+          {
+            path: ":id",
+            element: <ProjectDetail />,
+          },
+        ],
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "admin",
         element: <Admin />,
       },
     ],
