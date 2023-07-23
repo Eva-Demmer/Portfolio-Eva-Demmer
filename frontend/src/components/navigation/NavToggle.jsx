@@ -12,7 +12,7 @@ function NavToggleButton({ isOpen, onClick, onKeyDown }) {
       onClick={onClick}
       onKeyDown={onKeyDown}
       tabIndex={0}
-      className="group flex h-5 w-10 cursor-pointer flex-col items-center justify-center border-0 bg-primary"
+      className="group flex h-5 w-10 cursor-pointer flex-col items-center justify-center border-0 bg-primary z-40"
     >
       <div
         className={`${lines} ${

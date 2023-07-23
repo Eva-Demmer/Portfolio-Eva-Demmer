@@ -1,6 +1,6 @@
-import NavBar from "../components/navigation/NavBar";
+import { Link } from "react-router-dom";
 import IconButton from "../components/buttons/IconButton";
-import PrimaryButton from "../components/buttons/PrimaryButton";
+import CV from "../assets/documents/DEMMER_Eva-CV.pdf";
 import ContactForm from "../components/ContactForm";
 import Email from "../assets/logos/mail.svg";
 import GitHub from "../assets/logos/github.svg";
@@ -24,16 +24,11 @@ function Contact() {
     },
   ];
 
-  const handleDownload = () => {
-    // TODO: download CV
-  };
-
   return (
     <div
       id="contact"
-      className="lg:p-x-20 flex h-screen w-full flex-col items-center px-5 pb-5 md:px-10 md:pb-10 lg:pb-20 "
+      className="flex h-screen w-full flex-col items-center px-5 pb-5 md:px-10 md:pb-10 lg:px-20 lg:pb-20"
     >
-      <NavBar />
       <h1 className="mt-[65px]">Contact</h1>
       <main
         id="main-contact"
@@ -50,9 +45,15 @@ function Contact() {
               />
             ))}
           </div>
-          <PrimaryButton onClick={handleDownload}>
+          <Link
+            to={CV}
+            download="DEMMER_Eva-CV"
+            target="_blank"
+            rel="noreferrer"
+            className="w-max cursor-pointer self-center border-x-0 border-b-4 border-t-0 border-solid border-primary-800 bg-transparent px-1 pb-2 text-primary-100 uppercase text-xl font-medium leading-5 tracking-mobileParagraph md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph"
+          >
             Télécharger mon CV
-          </PrimaryButton>
+          </Link>
         </div>
         <ContactForm />
       </main>

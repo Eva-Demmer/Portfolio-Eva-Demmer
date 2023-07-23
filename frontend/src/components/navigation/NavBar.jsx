@@ -2,29 +2,27 @@ import { useState } from "react";
 import Logo from "./Logo";
 import ProgressBar from "./ProgressBar";
 import NavToggleButton from "./NavToggle";
+import NavLink from "./NavLink";
 
 // TODO: fix toggle bug on home page
 
-function NavBarMarkUp() {
+function NavBar() {
   const navLinks = [
     { href: "/home", text: "A propos" },
     { href: "/projects", text: "Projects" },
     { href: "/contact", text: "Contact" },
   ];
 
-  // TODO: add project links
+  // TODO: call backend
   const projectLinks = [
-    { href: "/projects", text: "Cruzzle" },
-    { href: "/projects", text: "Emmaüs Connect" },
-    { href: "/projects", text: "Burdiga Live" },
+    { href: "/projects/1", text: "Cruzzle" },
+    { href: "/projects/2", text: "Emmaüs Connect" },
+    { href: "/projects/4", text: "Burdiga Live" },
   ];
 
-  // TODO: change contact link to open mail
-  const contactLinks = [
-    { href: "/contact", text: "envoyer un mail" },
-    { href: "https://github.com/Eva-Demmer", text: "GitHub" },
-    { href: "https://www.linkedin.com/in/eva-demmer/", text: "LinkedIn" },
-  ];
+  const handleMailLink = () => {
+    window.open("mailto:info@evademmer.com");
+  };
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,10 +37,10 @@ function NavBarMarkUp() {
   };
 
   return (
-    <div id="nav" className="flex w-full flex-col">
+    <div id="nav" className="flex w-full flex-col relative">
       <header
         id="nav-header"
-        className="fixed left-0 top-0 flex w-full items-center justify-between bg-primary p-5 z-50"
+        className="fixed left-0 top-0 flex w-full items-center justify-between bg-primary p-5 z-30"
       >
         <Logo />
         <NavToggleButton
@@ -55,7 +53,7 @@ function NavBarMarkUp() {
       {isOpen && (
         <main
           id="main-nav"
-          className="mt-[45px] flex h-full w-full flex-col justify-between gap-20"
+          className="mt-[45px] pb-[65px] absolute h-screen flex w-full flex-col justify-between bg-primary gap-20 z-50 px-5"
         >
           <div
             id="nav-links"
@@ -89,14 +87,19 @@ function NavBarMarkUp() {
             </div>
             <div id="contact" className="-mb-3 flex w-full flex-col">
               <h5 className="uppercase text-secondary-600">contact</h5>
-              {contactLinks.map((link) => (
-                <a
-                  href={link.href}
-                  className="uppercase tracking-desktopH3 text-primary-100"
-                >
-                  <h5>{link.text}</h5>
-                </a>
-              ))}
+              <button
+                type="button"
+                onClick={handleMailLink}
+                className="uppercase tracking-desktopH3 text-primary-100 border-0 outline-none bg-transparent self-start"
+                style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+              >
+                <h5>Enovyer un mail</h5>
+              </button>
+              <NavLink text="GitHub" link="https://github.com/Eva-Demmer" />
+              <NavLink
+                text="LinkedIn"
+                link="https://www.linkedin.com/in/eva-demmer/"
+              />
             </div>
           </div>
         </main>
@@ -105,4 +108,4 @@ function NavBarMarkUp() {
   );
 }
 
-export default NavBarMarkUp;
+export default NavBar;
