@@ -1,7 +1,5 @@
 import PropTypes from "prop-types";
 
-// TODO: change size for tablet and desktop
-
 function NavToggleButton({ isOpen, onClick, onKeyDown }) {
   const lines = `block h-0.5 w-10 m-auto rounded-full bg-tertiary transition ease transform duration-300`;
 

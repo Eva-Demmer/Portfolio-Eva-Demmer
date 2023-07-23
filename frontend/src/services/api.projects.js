@@ -22,7 +22,7 @@ const apiAllProjects = async () => {
 
 const apiProjectById = async (id) => {
   try {
-    const response = await axios.get(`${url}${userRoute}${id}`);
+    const response = await axios.get(`${url}${userRoute}/${id}`);
     if (response.status === 200) {
       return response.data;
     }
@@ -31,7 +31,7 @@ const apiProjectById = async (id) => {
     if (error.response && error.response.status === 500) {
       console.error("Internal server error:", error);
     } else {
-      console.error("Fetch error:", error);
+      console.error("Fetch  error:", error);
     }
     throw error;
   }

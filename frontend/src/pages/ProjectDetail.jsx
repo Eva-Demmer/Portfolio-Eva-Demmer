@@ -1,62 +1,78 @@
-import NavBar from "../components/navigation/NavBar";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { apiProjectById } from "../services/api.projects";
+import Test from "../assets/images/mobile.png";
+import Technologies from "../assets/icons/technologies.svg";
 
-function Project() {
+// TODO: map over images once database filled
+
+function ProjectDetail() {
+  const [project, setProject] = useState();
+  const { id } = useParams();
+
+  useEffect(() => {
+    apiProjectById(id)
+      .then((data) => {
+        setProject(data);
+      })
+      .catch((error) => {
+        console.error("Error getting project by id", error);
+      });
+  }, [id]);
+
+  if (!project) {
+    return null;
+  }
+
   return (
     <div
-      id="project"
-      className="lg:p-x-20 flex h-screen w-full flex-col border border-solid border-red-500 px-5 pb-5 md:px-10 md:pb-10 lg:pb-20 "
+      id="project-detail"
+      className="flex h-full w-full flex-col px-5 pb-5 md:px-10 md:pb-10 lg:px-20 lg:pb-20"
     >
-      <NavBar />
-      <main
-        id="main-project"
-        className="mt-[65px] flex h-full w-full flex-col border border-solid border-yellow-500"
-      >
-        <h1>Projets</h1>
+      <h1 className="mt-[65px]">Projets</h1>
+      <main id="main-project-detail" className="flex w-full gap-10 flex-col">
         <div
-          id="content"
-          className="flex h-full w-full flex-col justify-between border border-solid border-green-500"
+          id="media"
+          className="flex h-full w-full gap-3 flex-col items-center"
         >
           <div
-            id="media"
-            className="flex h-full w-full flex-col items-center justify-between border border-solid border-blue-500"
+            id="big-media"
+            className="w-full rounded-xl bg-form text-primary-100"
           >
-            <div
-              id="big-media"
-              className="w-full border border-solid border-green-500"
-            >
-              big media
-            </div>
-            <div
-              id="small-media"
-              className="flex w-full border border-solid border-purple-500"
-            >
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-            </div>
-            <p>...</p>
+            add media
           </div>
+          <div id="small-media" className="flex w-full gap-2 justify-center">
+            <img
+              src={Test}
+              alt=""
+              id="slide-1"
+              className="h-14 w-14 bg-form rounded-xl"
+            />
+            <img
+              src={Test}
+              alt=""
+              id="slide-1"
+              className="h-14 w-14 bg-form rounded-xl"
+            />
+            <img
+              src={Test}
+              alt=""
+              id="slide-1"
+              className="h-14 w-14 bg-form rounded-xl"
+            />
+          </div>
+          <div>...</div>
+        </div>
+        <div id="project-info">
           <div
             id="summary"
-            className="flex h-full w-full flex-col justify-between border border-solid border-orange-500"
+            className="flex w-full flex-col justify-between gap-5"
           >
-            <h2
-              id="project-name"
-              className="w-full border border-solid border-blue-500"
-            >
-              project name
-            </h2>
-            <div
-              id="project-description"
-              className="w-full border border-solid border-blue-500"
-            >
-              project description
-            </div>
-            <div
-              id="project-technologies"
-              className="flex w-full border border-solid border-blue-500"
-            >
-              project technologies
+            <h2>{project.name}</h2>
+            <p>{project.description}</p>
+            <div className="flex gap-5">
+              <img src={Technologies} alt="" />
+              {project.technologies}
             </div>
           </div>
         </div>
@@ -65,4 +81,4 @@ function Project() {
   );
 }
 
-export default Project;
+export default ProjectDetail;

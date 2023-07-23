@@ -9,15 +9,15 @@ import LinkedIn from "../assets/logos/linkedin.svg";
 function Contact() {
   // TODO: add redirect for mail
   const iconButtons = [
-    { id: "email", src: Email, alt: "email", navigateLink: "" },
+    { id: 1, src: Email, alt: "email", navigateLink: "" },
     {
-      id: "GitHub",
+      id: 2,
       src: GitHub,
       alt: "GitHub",
       navigateLink: "https://github.com/Eva-Demmer",
     },
     {
-      id: "LinkedIn",
+      id: 3,
       src: LinkedIn,
       alt: "LinkedIn",
       navigateLink: "https://www.linkedin.com/in/eva-demmer/",

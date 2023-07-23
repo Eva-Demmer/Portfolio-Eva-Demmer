@@ -15,11 +15,11 @@ module.exports = {
       },
       colors: {
         primary: {
-          100: "#FCFAFF", // main text
+          100: "#FCFAFF", // white text
           800: "#4EE1A0", // green
         },
         secondary: {
-          600: "#9B9B9B", // secondary text
+          600: "#9B9B9B", // gray text
         },
         status: {
           warningRed: "#FF6F5B", // invalid input

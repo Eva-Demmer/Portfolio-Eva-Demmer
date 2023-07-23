@@ -5,7 +5,8 @@ import ProjectCard from "../components/projects/ProjectCard";
 import Mobile from "../assets/images/mobile.png";
 import Desktop from "../assets/images/desktop.png";
 
-// TODO: show max 10 projects total, filter 5 "best" ones for most recent ?
+// TODO: show max 10 projects total
+// QUESTION : Do I want to show most recent ones or best ones? Best ones.
 // TODO: for cover img use figma screens
 
 // NOTE: snap point tailwind for carousel in desktop
@@ -26,7 +27,7 @@ function Projects() {
   return (
     <div
       id="projects"
-      className="lg:p-x-20 flex h-full w-full flex-col px-5 pb-5 md:px-10 md:pb-10 lg:px-20 lg:pb-20"
+      className="flex h-full w-full flex-col px-5 pb-5 md:px-10 md:pb-10 lg:px-20 lg:pb-20"
     >
       <main id="main-projects" className="mt-[65px]">
         <h1>Projets</h1>

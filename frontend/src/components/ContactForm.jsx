@@ -1,72 +1,11 @@
-// import { useState } from "react";
-// import Input from "./Input";
-// import PrimaryButton from "./buttons/PrimaryButton";
-
-// function ContactForm() {
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [message, setMessage] = useState("");
-
-//   const handleNameChange = (newValue) => {
-//     setName(newValue);
-//   };
-
-//   const handleEmailChange = (newValue) => {
-//     setEmail(newValue);
-//   };
-
-//   const handleMessageChange = (newValue) => {
-//     setMessage(newValue);
-//   };
-
-//   const handleSubmit = () => {
-//     // TODO: handle submit
-//   };
-
-//   // TODO: adapt message input height
-
-//   return (
-//     <form className="my-5 flex h-full w-full flex-col justify-between bg-form p-5">
-//       <div
-//         id="inputs"
-//         className="flex h-full flex-col gap-8 border border-solid border-red-500 pt-2"
-//       >
-//         <Input
-//           label="Nom"
-//           type="text"
-//           value={name}
-//           onChange={handleNameChange}
-//         />
-//         <Input
-//           label="Adresse mail"
-//           type="email"
-//           value={email}
-//           onChange={handleEmailChange}
-//         />
-//         <Input
-//           label="Message"
-//           type="textarea"
-//           value={message}
-//           onChange={handleMessageChange}
-//         />
-//       </div>
-//       <div
-//         id="btn"
-//         className="mt-8 flex justify-end border border-solid border-green-500"
-//       >
-//         <PrimaryButton onClick={handleSubmit}>Envoyer</PrimaryButton>
-//       </div>
-//     </form>
-//   );
-// }
-
-// export default ContactForm;
-
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "./Input";
 import PrimaryButton from "./buttons/PrimaryButton";
 
 function ContactForm() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -112,7 +51,8 @@ function ContactForm() {
     }
 
     if (isValid) {
-      // TODO: handle form submission
+      // TODO: handle form submission: show success message + send mail
+      navigate("/home");
     }
   };
 
@@ -120,10 +60,7 @@ function ContactForm() {
 
   return (
     <form className="my-5 flex h-full w-full flex-col justify-between bg-form p-5">
-      <div
-        id="inputs"
-        className="flex h-full flex-col gap-8 border border-solid border-red-500 pt-2"
-      >
+      <div id="inputs" className="flex h-full flex-col gap-8 pt-2">
         <Input
           label="Nom"
           type="text"

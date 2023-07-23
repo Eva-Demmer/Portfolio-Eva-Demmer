@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/buttons/PrimaryButton";
 import Portrait from "../assets/images/portrait.png";
 
-// TODO: fix nav toggle bug
-
 function Home() {
   const navigate = useNavigate();
   const handleClick = () => {

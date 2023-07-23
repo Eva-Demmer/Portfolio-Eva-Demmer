@@ -1,28 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { apiAllProjects } from "../../services/api.projects";
 import Logo from "./Logo";
 import ProgressBar from "./ProgressBar";
 import NavToggleButton from "./NavToggle";
 import NavLink from "./NavLink";
 
-// TODO: fix toggle bug on home page
-
 function NavBar() {
   const navLinks = [
-    { href: "/home", text: "A propos" },
-    { href: "/projects", text: "Projects" },
-    { href: "/contact", text: "Contact" },
+    { id: 1, href: "/home", text: "A propos" },
+    { id: 2, href: "/projects", text: "Projects" },
+    { id: 3, href: "/contact", text: "Contact" },
   ];
 
-  // TODO: call backend
-  const projectLinks = [
-    { href: "/projects/1", text: "Cruzzle" },
-    { href: "/projects/2", text: "Emmaüs Connect" },
-    { href: "/projects/4", text: "Burdiga Live" },
-  ];
+  const [projects, setProjects] = useState([]);
 
-  const handleMailLink = () => {
-    window.open("mailto:info@evademmer.com");
-  };
+  useEffect(() => {
+    apiAllProjects()
+      .then((data) => {
+        setProjects(data);
+      })
+      .catch((error) => {
+        console.error("Error getting projects", error);
+      });
+  }, []);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,6 +34,10 @@ function NavBar() {
     if (event.key === "Enter") {
       toggleNavbar();
     }
+  };
+
+  const handleMailLink = () => {
+    window.open("mailto:info@evademmer.com");
   };
 
   return (
@@ -61,6 +65,7 @@ function NavBar() {
           >
             {navLinks.map((link) => (
               <a
+                key={link.id}
                 href={link.href}
                 className="flex flex-col justify-end p-2 uppercase tracking-desktopH3 text-primary-100"
               >
@@ -76,12 +81,13 @@ function NavBar() {
               <h5 className="uppercase text-secondary-600">
                 derniers projects
               </h5>
-              {projectLinks.map((link) => (
+              {projects.slice(0, 3).map((project) => (
                 <a
-                  href={link.href}
+                  key={project.id}
+                  href={`/projects/${project.id}`}
                   className="uppercase tracking-desktopH3 text-primary-100"
                 >
-                  <h5>{link.text}</h5>
+                  <h5>{project.name}</h5>
                 </a>
               ))}
             </div>
