@@ -5,12 +5,13 @@ CREATE TABLE `projects` (
   `technologies` VARCHAR(255) NOT NULL,
   `summary` TEXT NOT NULL,
   `description` TEXT NOT NULL,
-  `video` VARCHAR(255),
+  `video_desktop` VARCHAR(255) NOT NULL,
+  `video_mobile` VARCHAR(255),
   `screenshot_desktop` VARCHAR(255) NOT NULL,
   `screenshot_mobile` VARCHAR(255) NOT NULL,
-  `image_1` VARCHAR(255),
-  `image_2` VARCHAR(255),
-  `image_3` VARCHAR(255),
+  `image_1` VARCHAR(255) NOT NULL,
+  `image_2` VARCHAR(255) NOT NULL,
+  `image_3` VARCHAR(255) NOT NULL,
   `image_4` VARCHAR(255),
   `image_5` VARCHAR(255),
   `image_6` VARCHAR(255),
@@ -19,12 +20,12 @@ CREATE TABLE `projects` (
   `image_9` VARCHAR(255),
   `image_10` VARCHAR(255)
 );
-INSERT INTO `projects` (`name`, `publication_date`, `technologies`, `summary`, `description`, `screenshot_desktop`, `screenshot_mobile`)
+INSERT INTO `projects` (`name`, `publication_date`, `technologies`, `summary`, `description`, `video_desktop`, `screenshot_desktop`, `screenshot_mobile`, `image_1`, `image_2`, `image_3`)
 VALUES
-  ('Cruzzle', '2023-07-27', 'React, MaterialUI, Tailwind, Figma, Express, Prisma', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://picsum.photos/262/178', 'https://picsum.photos/262/178'),
-  ('Emmaüs Connect', '2023-06-30', 'React, MaterialUI, Tailwind, Figma, Express', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://picsum.photos/262/178', 'https://picsum.photos/262/178'),
-  ('Hidely Days', '2023-05-12', 'React, SCSS, Figma, WeatherAPI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://picsum.photos/262/178', 'https://picsum.photos/262/178'),
-  ('Burdiga Live', '2023-05-05', 'React, SCSS, Figma, SpotifyAPI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://picsum.photos/262/178', 'https://picsum.photos/262/178');
+  ('Cruzzle', '2023-07-27', 'React, MaterialUI, Tailwind, Figma, Express, Prisma', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://svgshare.com/i/vhs.svg', 'https://svgshare.com/i/vet.svg', 'https://svgshare.com/i/vf5.svg', 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg', 'https://svgshare.com/i/vhe.svg'),
+  ('Emmaüs Connect', '2023-06-30', 'React, MaterialUI, Tailwind, Figma, Express', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://svgshare.com/i/vhs.svg', 'https://svgshare.com/i/vet.svg', 'https://svgshare.com/i/vf5.svg', 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg', 'https://svgshare.com/i/vhe.svg'),
+  ('Hidely Days', '2023-05-12', 'React, SCSS, Figma, WeatherAPI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://svgshare.com/i/vhs.svg', 'https://svgshare.com/i/vet.svg', 'https://svgshare.com/i/vf5.svg', 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg', 'https://svgshare.com/i/vhe.svg'),
+  ('Burdiga Live', '2023-05-05', 'React, SCSS, Figma, SpotifyAPI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porta lacinia ipsum, id dignissim tortor placerat eu. Nunc ullamcorper lectus massa, non maximus nisl volutpat sed. Nunc at magna nibh. Cras ut nunc metus. Nullam quis vehicula erat.', 'https://svgshare.com/i/vhs.svg', 'https://svgshare.com/i/vet.svg', 'https://svgshare.com/i/vf5.svg', 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg', 'https://svgshare.com/i/vhe.svg');
 
 CREATE TABLE `admin` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,

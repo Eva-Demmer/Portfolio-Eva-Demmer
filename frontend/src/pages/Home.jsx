@@ -10,19 +10,19 @@ function Home() {
   return (
     <div
       id="home"
-      className="flex h-screen w-full flex-col items-center justify-end gap-5 p-5 overflow-hidden"
+      className="flex h-screen w-full flex-col items-center lg:items-start justify-end gap-5 p-5 md:p-10 lg:p-20 overflow-hidden"
     >
       <div
         id="portrait"
-        className="absolute top-0 flex h-1/2 w-1/2 flex-col items-center justify-end bg-gradient-to-t from-[#242424] to-transparent z-40"
+        className="absolute top-0 lg:right-[10%] flex h-1/2 lg:h-[90%] w-1/2 md:w-5/12 lg:w-1/4 flex-col items-center justify-end bg-gradient-to-t from-[#242424] to-transparent z-40"
       >
         <img src={Portrait} alt="portrait" className="w-full" />
       </div>
       <main
         id="main-home"
-        className="flex h-1/2 w-full flex-col justify-between pt-10 text-center"
+        className="flex h-1/2 lg:h-full w-full lg:w-[60%] flex-col justify-between pt-10 text-center lg:py-[10%]"
       >
-        <header id="welcome" className="w-full pb-[18px]">
+        <header id="welcome" className="w-full pb-[18px] md:text-start">
           <h2>Enchantée !</h2>
           <h2>
             Moi, c'est{" "}
@@ -32,11 +32,13 @@ function Home() {
             .
           </h2>
         </header>
-        <p id="description-self" className="w-full text-start">
+        <p id="description-self" className="w-full text-start lg:pt-[6%]">
           Basée à Bordeaux, en France, je suis une développeuse front-end junior
           passionnée par la création d'applications web faciles d'utilisation.
         </p>
-        <Button onClick={handleClick}>Contactez-moi</Button>
+        <div className="lg:flex lg:items-start lg:pt-[10%]">
+          <Button onClick={handleClick}>Contactez-moi</Button>
+        </div>
       </main>
     </div>
   );

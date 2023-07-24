@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { apiProjectById } from "../services/api.projects";
-import Test from "../assets/images/mobile.png";
 import Technologies from "../assets/icons/technologies.svg";
-
-// TODO: map over images once database filled
 
 function ProjectDetail() {
   const [project, setProject] = useState();
@@ -35,30 +32,25 @@ function ProjectDetail() {
           id="media"
           className="flex h-full w-full gap-3 flex-col items-center"
         >
-          <div
-            id="big-media"
-            className="w-full rounded-xl bg-form text-primary-100"
-          >
-            add media
-          </div>
+          <img src={project.video} alt="" className="w-full rounded-lg" />
           <div id="small-media" className="flex w-full gap-2 justify-center">
             <img
-              src={Test}
+              src={project.image_1}
               alt=""
               id="slide-1"
-              className="h-14 w-14 bg-form rounded-xl"
+              className="h-14 w-14 bg-form rounded-lg"
             />
             <img
-              src={Test}
+              src={project.image_2}
               alt=""
               id="slide-1"
-              className="h-14 w-14 bg-form rounded-xl"
+              className="h-14 w-14 bg-form rounded-lg"
             />
             <img
-              src={Test}
+              src={project.image_3}
               alt=""
               id="slide-1"
-              className="h-14 w-14 bg-form rounded-xl"
+              className="h-14 w-14 bg-form rounded-lg"
             />
           </div>
           <div>...</div>

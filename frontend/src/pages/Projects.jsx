@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { apiAllProjects } from "../services/api.projects";
 import ProjectCard from "../components/projects/ProjectCard";
-import Mobile from "../assets/images/mobile.png";
-import Desktop from "../assets/images/desktop.png";
 
 // TODO: show max 10 projects total
 // QUESTION : Do I want to show most recent ones or best ones? Best ones.
@@ -37,8 +35,8 @@ function Projects() {
               <Link to={`/projects/${project.id}`} key={project.id}>
                 <ProjectCard
                   projectName={project.name}
-                  desktopScreen={Desktop}
-                  mobileScreen={Mobile}
+                  desktopScreen={project.screenshot_desktop}
+                  mobileScreen={project.screenshot_mobile}
                   projectSummary={project.summary}
                 />
               </Link>

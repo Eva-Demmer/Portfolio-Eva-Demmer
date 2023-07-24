@@ -11,20 +11,21 @@ function ProjectCard({
       id="project-card"
       className="relative overflow-hidden w-full rounded-xl bg-form text-primary-100"
     >
-      <h3 id="project-name" className="uppercase p-5 relative text-xl">
+      <h3 id="project-name" className="uppercase p-5 text-xl">
         {projectName}
       </h3>
-
-      <img
-        src={desktopScreen}
-        alt=""
-        className="absolute w-[60%] left-[8%] -rotate-[7deg] z-10"
-      />
-      <img
-        src={mobileScreen}
-        alt=""
-        className="absolute w-[25%] left-[78%] -rotate-[7deg] z-10"
-      />
+      <div className="-rotate-6 z-10 flex h-full">
+        <img
+          src={desktopScreen}
+          alt=""
+          className="absolute left-[5%] w-[60%]"
+        />
+        <img
+          src={mobileScreen}
+          alt=""
+          className="absolute left-[70%] w-[25%]"
+        />
+      </div>
       <p className="p-3 mt-20 z-20 relative backdrop-blur">{projectSummary}</p>
     </div>
   );

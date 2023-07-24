@@ -44,7 +44,7 @@ function NavBar() {
     <div id="nav" className="flex w-full flex-col relative">
       <header
         id="nav-header"
-        className="fixed left-0 top-0 flex w-full items-center justify-between bg-primary p-5 z-30"
+        className="fixed left-0 top-0 flex w-full items-center justify-between bg-primary p-5 md:p-6 lg:p-10 z-30"
       >
         <Logo />
         <NavToggleButton
@@ -57,7 +57,7 @@ function NavBar() {
       {isOpen && (
         <main
           id="main-nav"
-          className="mt-[45px] pb-[65px] absolute h-screen flex w-full flex-col justify-between bg-primary gap-20 z-50 px-5"
+          className="mt-[45px] pb-[65px] absolute h-screen flex w-full flex-col justify-between bg-primary gap-20 z-50 px-5 md:px-6 lg:px-10"
         >
           <div
             id="nav-links"
