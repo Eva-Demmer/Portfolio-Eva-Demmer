@@ -21,9 +21,16 @@ pool.getConnection((err, connection) => {
 });
 
 const models = {};
-const table = "Projects";
-const ProjectsModel = require("./projects.models");
+const tableProjects = "projects";
+const tableImages = "images";
 
-models.projects = new ProjectsModel({ table });
+const ProjectsModel = require("./projects.models");
+const ImagesModel = require("./images.models");
+
+models.projects = new ProjectsModel({ table: tableProjects });
 models.projects.setDatabase(pool);
+
+models.images = new ImagesModel({ table: tableImages });
+models.images.setDatabase(pool);
+
 module.exports = models;

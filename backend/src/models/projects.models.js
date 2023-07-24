@@ -18,13 +18,15 @@ class ProjectsModel {
 
   create(project) {
     return this.database.query(
-      `INSERT INTO ${this.table}(name, publication_date, technologies, summary, description, screenshot_desktop, screenshot_mobile) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table}(name, publication_date, technologies, summary, description, video_desktop, video_mobile, screenshot_desktop, screenshot_mobile) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         project.name,
         project.publication_date,
         project.technologies,
         project.summary,
         project.description,
+        project.video_desktop,
+        project.video_mobile,
         project.screenshot_desktop,
         project.screenshot_mobile,
       ]
@@ -33,13 +35,15 @@ class ProjectsModel {
 
   update(id, project) {
     return this.database.query(
-      `UPDATE ${this.table} SET name = ?, publication_date = ?, technologies = ?, summary = ?, description = ?, screenshot_desktop, screenshot_mobile = ? WHERE id = ?`,
+      `UPDATE ${this.table} SET name = ?, publication_date = ?, technologies = ?, summary = ?, description = ?, video_desktop = ?, video_mobile = ?, screenshot_desktop = ?, screenshot_mobile = ? WHERE id = ?`,
       [
         project.name,
         project.publication_date,
         project.technologies,
         project.summary,
         project.description,
+        project.video_desktop,
+        project.video_mobile,
         project.screenshot_desktop,
         project.screenshot_mobile,
         id,

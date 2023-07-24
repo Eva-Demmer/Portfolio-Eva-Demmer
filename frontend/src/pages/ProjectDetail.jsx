@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { apiProjectById } from "../services/api.projects";
+import apiImagesByProjectId from "../services/api.images";
 import Technologies from "../assets/icons/technologies.svg";
+
+// FIX: connsole error for map ?!
 
 function ProjectDetail() {
   const [project, setProject] = useState();
+  const [image, setImage] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -14,6 +18,14 @@ function ProjectDetail() {
       })
       .catch((error) => {
         console.error("Error getting project by id", error);
+      });
+
+    apiImagesByProjectId(id)
+      .then((data) => {
+        setImage(data);
+      })
+      .catch((error) => {
+        console.error("Error getting images by project id", error);
       });
   }, [id]);
 
@@ -32,26 +44,20 @@ function ProjectDetail() {
           id="media"
           className="flex h-full w-full gap-3 flex-col items-center"
         >
-          <img src={project.video} alt="" className="w-full rounded-lg" />
+          <img
+            src={project.video_desktop}
+            alt=""
+            className="w-full rounded-lg"
+          />
           <div id="small-media" className="flex w-full gap-2 justify-center">
-            <img
-              src={project.image_1}
-              alt=""
-              id="slide-1"
-              className="h-14 w-14 bg-form rounded-lg"
-            />
-            <img
-              src={project.image_2}
-              alt=""
-              id="slide-1"
-              className="h-14 w-14 bg-form rounded-lg"
-            />
-            <img
-              src={project.image_3}
-              alt=""
-              id="slide-1"
-              className="h-14 w-14 bg-form rounded-lg"
-            />
+            {image.map((item) => (
+              <img
+                key={item.id}
+                src={item.image_mobile}
+                alt=""
+                className="h-14 w-14 bg-form rounded-lg"
+              />
+            ))}
           </div>
           <div>...</div>
         </div>
