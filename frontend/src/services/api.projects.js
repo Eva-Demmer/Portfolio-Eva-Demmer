@@ -7,6 +7,7 @@ const apiAllProjects = async () => {
   try {
     const response = await axios.get(`${url}${userRoute}`);
     if (response.status === 200) {
+      console.info("All projects:", response.data);
       return response.data;
     }
     throw new Error(`Unexpected response status: ${response.status}`);
@@ -24,6 +25,7 @@ const apiProjectById = async (id) => {
   try {
     const response = await axios.get(`${url}${userRoute}/${id}`);
     if (response.status === 200) {
+      console.info("Projet by id:", response.data);
       return response.data;
     }
     throw new Error(`Unexpected response status: ${response.status}`);

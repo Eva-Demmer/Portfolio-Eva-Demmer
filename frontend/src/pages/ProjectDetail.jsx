@@ -4,7 +4,7 @@ import { apiProjectById } from "../services/api.projects";
 import apiImagesByProjectId from "../services/api.images";
 import Technologies from "../assets/icons/technologies.svg";
 
-// FIX: connsole error for map ?!
+// FIX: doesn't display images ?!
 
 function ProjectDetail() {
   const [project, setProject] = useState();
@@ -12,24 +12,38 @@ function ProjectDetail() {
   const { id } = useParams();
 
   useEffect(() => {
-    apiProjectById(id)
-      .then((data) => {
-        setProject(data);
-      })
-      .catch((error) => {
-        console.error("Error getting project by id", error);
-      });
+    const fetchData = async () => {
+      try {
+        const projectData = await apiProjectById(id);
+        setProject(projectData);
+      } catch (error) {
+        console.error("Error getting projects by id data", error);
+      }
+    };
 
-    apiImagesByProjectId(id)
-      .then((data) => {
-        setImage(data);
-      })
-      .catch((error) => {
-        console.error("Error getting images by project id", error);
-      });
+    fetchData();
   }, [id]);
 
+  useEffect(() => {
+    if (project && project.id) {
+      const fetchImages = async () => {
+        try {
+          const imagesData = await apiImagesByProjectId(project.id);
+          setImage(imagesData);
+        } catch (error) {
+          console.error("Error getting images by project_id data", error);
+        }
+      };
+
+      fetchImages();
+    }
+  }, [project]);
+
   if (!project) {
+    return null;
+  }
+
+  if (!image) {
     return null;
   }
 
@@ -49,15 +63,43 @@ function ProjectDetail() {
             alt=""
             className="w-full rounded-lg"
           />
-          <div id="small-media" className="flex w-full gap-2 justify-center">
-            {image.map((item) => (
-              <img
-                key={item.id}
-                src={item.image_mobile}
-                alt=""
-                className="h-14 w-14 bg-form rounded-lg"
-              />
-            ))}
+          <div
+            id="small-media"
+            className="flex w-full gap-2 justify-center border border-solid border-red-500"
+          >
+            <img
+              src={project.video_desktop}
+              alt=""
+              className="h-12 w-18 bg-form rounded"
+            />
+            <img
+              src={image.image_desktop}
+              alt=""
+              className="h-12 w-18 bg-form rounded"
+            />
+            {/* {image.length > 0 ? (
+              <div>
+                <ul>
+                  {image.map((item) => (
+                    <li
+                      key={item.id}
+                      className="flex w-full gap-2 justify-center"
+                    >
+                      <img
+                        src={item.image_desktop}
+                        alt=""
+                        className="h-12 w-18 bg-form rounded"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p className="h-12 bg-form rounded-lg">
+                No <br />
+                image
+              </p>
+            )} */}
           </div>
           <div>...</div>
         </div>
@@ -68,9 +110,9 @@ function ProjectDetail() {
           >
             <h2>{project.name}</h2>
             <p>{project.description}</p>
-            <div className="flex gap-5">
+            <div className="flex gap-5 pb-5 md:pb-10 lg:pb-20">
               <img src={Technologies} alt="" />
-              {project.technologies}
+              <p>{project.technologies}</p>
             </div>
           </div>
         </div>

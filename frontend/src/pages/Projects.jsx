@@ -4,8 +4,6 @@ import { apiAllProjects } from "../services/api.projects";
 import ProjectCard from "../components/projects/ProjectCard";
 
 // TODO: show max 10 projects total
-// QUESTION : Do I want to show most recent ones or best ones? Best ones.
-// TODO: for cover img use figma screens
 
 // NOTE: snap point tailwind for carousel in desktop
 
@@ -13,13 +11,16 @@ function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    apiAllProjects()
-      .then((data) => {
+    const fetchData = async () => {
+      try {
+        const data = await apiAllProjects();
         setProjects(data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error getting projects", error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (

@@ -7,7 +7,7 @@ const apiImagesByProjectId = async (projectId) => {
   try {
     const response = await axios.get(`${url}${userRoute}/${projectId}/images`);
     if (response.status === 200) {
-      console.info("response:", response.data);
+      console.info("Images by project_id:", response.data);
       return response.data;
     }
     throw new Error(`Unexpected response status: ${response.status}`);
