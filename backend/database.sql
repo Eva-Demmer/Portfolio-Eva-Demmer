@@ -1,9 +1,9 @@
 CREATE TABLE `admin` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
   `email` VARCHAR(255) NOT NULL,
-  `hashed_password` VARCHAR(255) NOT NULL
+  `password` VARCHAR(255) NOT NULL
 );
-INSERT INTO `admin` (`email`, `hashed_password`)
+INSERT INTO `admin` (`email`, `password`)
 VALUES
   ('admin@example.com', 'not-hashed-yet');
 
@@ -35,6 +35,7 @@ CREATE TABLE `images` (
 );
 
 CREATE TABLE `project_images` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT,
   `project_id` INT,
   `image_id` INT,
   FOREIGN KEY (`project_id`) REFERENCES `projects`(`id`),
@@ -75,7 +76,6 @@ VALUES
   (3, 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg'),
   (3, 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg'),
   (3, 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg');
-  -- (3, '', 'test-mobile-p1');
 
 -- Completing the project_images table for project 3
 INSERT INTO `project_images` (`project_id`, `image_id`)
@@ -83,7 +83,6 @@ VALUES
   (3, LAST_INSERT_ID()),
   (3, LAST_INSERT_ID()),
   (3, LAST_INSERT_ID());
-  -- (3, LAST_INSERT_ID());
 
 -- Inserting data into the images table for project 4
 INSERT INTO `images` (`project_id`, `image_desktop`, `image_mobile`)
@@ -91,8 +90,6 @@ VALUES
   (4, 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg'),
   (4, 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg'),
   (4, 'https://svgshare.com/i/vit.svg', 'https://svgshare.com/i/vhe.svg');
-  -- (4, '', 'test-desktop-p2-1'),
-  -- (4, '', 'test-desktop-p2-2');
 
 -- Completing the project_images table for project 4
 INSERT INTO `project_images` (`project_id`, `image_id`)
@@ -100,5 +97,3 @@ VALUES
   (4, LAST_INSERT_ID()),
   (4, LAST_INSERT_ID()),
   (4, LAST_INSERT_ID());
-  -- (4, LAST_INSERT_ID()),
-  -- (4, LAST_INSERT_ID());

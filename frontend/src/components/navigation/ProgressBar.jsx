@@ -24,7 +24,7 @@ function ProgressBar() {
 
   return (
     <div
-      className="fixed inset-x-0 top-[64px] z-50 h-1 bg-gradient-to-r from-[#4EE1A0] to-[#272727]"
+      className="fixed inset-x-0 top-[64px] z-50 h-1 bg-gradient-to-r from-[#4EE1A0] to-[#272727] lg:top-[110px]"
       style={{ width: `${percent}%` }}
     />
   );

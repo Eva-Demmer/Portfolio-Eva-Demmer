@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { apiAllProjects } from "../services/api.projects";
 import ProjectCard from "../components/projects/ProjectCard";
 
-// TODO: show max 10 projects total
-
 // NOTE: snap point tailwind for carousel in desktop
 
 function Projects() {
@@ -28,9 +26,9 @@ function Projects() {
       id="projects"
       className="flex h-full w-full flex-col px-5 pb-5 md:px-10 md:pb-10 lg:px-20 lg:pb-20"
     >
-      <main id="main-projects" className="mt-[65px]">
+      <main id="main-projects" className="mt-[65px] lg:mt-[110px]">
         <h1>Projets</h1>
-        <div id="project-cards" className="flex flex-col gap-5 pt-3 pb-5">
+        <div id="project-cards" className="flex flex-col gap-5 pb-5 pt-3">
           {projects &&
             projects.map((project) => (
               <Link to={`/projects/${project.id}`} key={project.id}>

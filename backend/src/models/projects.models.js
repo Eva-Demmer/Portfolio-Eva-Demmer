@@ -6,14 +6,15 @@ class ProjectsModel {
 
   findAll() {
     return this.database.query(
-      `SELECT * FROM ${this.table} ORDER BY publication_date DESC`
+      `SELECT id, name, summary, screenshot_desktop, screenshot_mobile FROM ${this.table} ORDER BY publication_date DESC`
     );
   }
 
   findById(id) {
-    return this.database.query(`SELECT * FROM ${this.table} WHERE id = ?`, [
-      id,
-    ]);
+    return this.database.query(
+      `SELECT id, name, technologies, description, video_desktop, video_mobile FROM ${this.table} WHERE id = ?`,
+      [id]
+    );
   }
 
   create(project) {

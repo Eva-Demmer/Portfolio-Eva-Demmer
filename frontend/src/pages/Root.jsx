@@ -13,7 +13,7 @@ function Root() {
 
   return (
     <div className="flex h-screen">
-      <main className="grow h-full">
+      <main className="h-full grow">
         <Navbar />
         <Outlet />
       </main>

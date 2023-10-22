@@ -24,7 +24,7 @@
   }
 
   h1 {
-    @apply mb-3 text-5xl font-bold uppercase tracking-mobileH1 md:text-8xl md:tracking-tabletH1 lg:text-9xl lg:tracking-desktopH1;
+    @apply mb-3 lg:mb-0 text-5xl font-bold uppercase tracking-mobileH1 md:text-8xl md:tracking-tabletH1 lg:text-9xl lg:tracking-desktopH1 lg:leading-12;
   }
 
   h2 {
@@ -48,11 +48,11 @@
   // }
 
   span {
-    @apply text-xl font-medium uppercase leading-5 tracking-mobileParagraph md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph;
+    @apply text-xl lg:text-base font-medium uppercase leading-5 tracking-mobileParagraph md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph;
   }
 
   p {
-    @apply text-base font-light leading-5 tracking-mobileParagraph md:text-base md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph;
+    @apply text-base font-light leading-5 tracking-mobileParagraph md:leading-8 md:tracking-tabletParagraph lg:tracking-desktopParagraph;
   }
 }
 
@@ -90,4 +90,8 @@
 ::-webkit-scrollbar-track-horizontal {
   background-color: #242424;
   border: none;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

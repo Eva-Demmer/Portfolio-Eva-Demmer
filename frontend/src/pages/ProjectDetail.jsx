@@ -7,7 +7,7 @@ import Technologies from "../assets/icons/technologies.svg";
 // FIX: doesn't display images ?!
 
 function ProjectDetail() {
-  const [project, setProject] = useState();
+  const [project, setProject] = useState("Ce project arrivera bientôt");
   const [image, setImage] = useState([]);
   const { id } = useParams();
 
@@ -16,34 +16,33 @@ function ProjectDetail() {
       try {
         const projectData = await apiProjectById(id);
         setProject(projectData);
+        const imagesData = await apiImagesByProjectId(id);
+        console.info("project detail, images:", imagesData);
+        setImage(imagesData);
       } catch (error) {
-        console.error("Error getting projects by id data", error);
+        console.error("Error getting data", error);
       }
     };
 
     fetchData();
   }, [id]);
 
-  useEffect(() => {
-    if (project && project.id) {
-      const fetchImages = async () => {
-        try {
-          const imagesData = await apiImagesByProjectId(project.id);
-          setImage(imagesData);
-        } catch (error) {
-          console.error("Error getting images by project_id data", error);
-        }
-      };
+  // useEffect(() => {
+  //   if (project && project.id) {
+  //     const fetchImages = async () => {
+  //       try {
+  //         const imagesData = await apiImagesByProjectId(project.id);
+  //         setImage(imagesData);
+  //       } catch (error) {
+  //         console.error("Error getting images by project_id data", error);
+  //       }
+  //     };
 
-      fetchImages();
-    }
-  }, [project]);
+  //     fetchImages();
+  //   }
+  // }, [project]);
 
-  if (!project) {
-    return null;
-  }
-
-  if (!image) {
+  if (!project || image.length === 0) {
     return null;
   }
 
@@ -52,11 +51,13 @@ function ProjectDetail() {
       id="project-detail"
       className="flex h-full w-full flex-col px-5 pb-5 md:px-10 md:pb-10 lg:px-20 lg:pb-20"
     >
-      <h1 className="mt-[65px]">Projets</h1>
-      <main id="main-project-detail" className="flex w-full gap-10 flex-col">
+      <h1 className="mt-[65px] border-2 border-solid border-yellow-500 lg:mt-[110px]">
+        Projets
+      </h1>
+      <main id="main-project-detail" className="flex w-full flex-col gap-10">
         <div
           id="media"
-          className="flex h-full w-full gap-3 flex-col items-center"
+          className="flex h-full w-full flex-col items-center gap-3"
         >
           <img
             src={project.video_desktop}
@@ -65,17 +66,17 @@ function ProjectDetail() {
           />
           <div
             id="small-media"
-            className="flex w-full gap-2 justify-center border border-solid border-red-500"
+            className="flex w-full justify-center gap-2 border border-solid border-red-500"
           >
             <img
               src={project.video_desktop}
               alt=""
-              className="h-12 w-18 bg-form rounded"
+              className="w-18 h-12 rounded bg-form"
             />
             <img
-              src={image.image_desktop}
+              src={image[0].image_desktop}
               alt=""
-              className="h-12 w-18 bg-form rounded"
+              className="w-18 h-12 rounded bg-form"
             />
             {/* {image.length > 0 ? (
               <div>

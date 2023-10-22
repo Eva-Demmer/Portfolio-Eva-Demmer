@@ -38,7 +38,7 @@ module.exports = {
         "6xl": "80px",
         "7xl": "88px",
         "8xl": "96px",
-        "9xl": "128px",
+        "9xl": "118px",
       },
       letterSpacing: {
         mobileParagraph: "0.6px",
@@ -64,6 +64,7 @@ module.exports = {
         8: "30px",
         9: "35px",
         11: "100px",
+        12: "130px",
       },
     },
   },

@@ -9,7 +9,7 @@ function NavLink({ text, link }) {
     <button
       type="button"
       onClick={handleClick}
-      className="uppercase tracking-desktopH3 text-primary-100 border-0 outline-none bg-transparent self-start"
+      className="self-start border-0 bg-transparent uppercase tracking-desktopH3 text-primary-100 outline-none"
       style={{ fontFamily: '"Space Grotesk", sans-serif' }}
     >
       <h5>{text}</h5>

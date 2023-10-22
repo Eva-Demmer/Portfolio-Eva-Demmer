@@ -12,10 +12,10 @@ function ErrorPage() {
   return (
     <div
       id="error-page"
-      className="h-screen flex flex-col justify-center text-center gap-10 p-5 bg-gradient-to-b from-[#151515] to-emerald-950 lg:via-emerald-950 lg:to-emerald-900"
+      className="flex h-screen flex-col justify-center gap-10 bg-gradient-to-b from-[#151515] to-emerald-950 p-5 text-center lg:via-emerald-950 lg:to-emerald-900"
     >
       <h1>Oups!</h1>
-      <p className="mb-10 -mt-10">
+      <p className="-mt-10 mb-10">
         Vous avez atteint le trou noir du développement web - la Galaxie Erreur
         404 !
       </p>

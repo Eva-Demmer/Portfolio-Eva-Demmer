@@ -1,4 +1,5 @@
-// import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
-// export const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
-// export const isDesktop = useMediaQuery({ query: "(min-width: 1024)" });
+export const isMobile = useMediaQuery({ query: "(min-width: 480px)" });
+export const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
+export const isDesktop = useMediaQuery({ query: "(min-width: 1024)" });

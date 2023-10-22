@@ -9,12 +9,12 @@ function ProjectCard({
   return (
     <div
       id="project-card"
-      className="relative overflow-hidden w-full rounded-xl bg-form text-primary-100"
+      className="relative w-full overflow-hidden rounded-xl bg-form text-primary-100"
     >
-      <h3 id="project-name" className="uppercase p-5 text-xl">
+      <h3 id="project-name" className="p-5 text-xl uppercase">
         {projectName}
       </h3>
-      <div className="-rotate-6 z-10 flex h-full">
+      <div className="z-10 flex h-full -rotate-6">
         <img
           src={desktopScreen}
           alt=""
@@ -26,7 +26,7 @@ function ProjectCard({
           className="absolute left-[70%] w-[25%]"
         />
       </div>
-      <p className="p-3 mt-20 z-20 relative backdrop-blur">{projectSummary}</p>
+      <p className="relative z-10 mt-20 p-3 backdrop-blur">{projectSummary}</p>
     </div>
   );
 }
